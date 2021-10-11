@@ -1,0 +1,19 @@
+<p>Sheet for date {{ date_string }} </p>
+<table>
+  <thead>
+    <th>Project</th>
+    {% for employee in employees %}
+      <th>{{ employee }}</th>
+    {% endfor %}
+  </thead>
+  <tbody>
+    {% for project in projects %}
+      <tr>
+        <td>{{ project.name }}</td>
+        {% for employee in employees %}
+          <td>{{ project.records.get(employee, 0) }}</td>
+        {% endfor %}
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
